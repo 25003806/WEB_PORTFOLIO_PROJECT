@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Wamashudu Mutavhatsindi | CS Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* navigation – responsive */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: white;
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #ffd966;
+    }
+    /* focus for accessibility */
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #ffd966;
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    /* hero / homepage */
+    .hero {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: white;
+      margin-bottom: 2rem;
+      transition: 0.2s;
+    }
+    .hero img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      background: rgba(0,0,0,0.2);
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      margin: 0.8rem 0;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0.5rem auto;
+    }
+
+    /* cards */
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+    }
+    h2 {
+      color: #5a67d8;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      border-left: 5px solid #764ba2;
+      padding-left: 1rem;
+    }
+    h3 {
+      margin: 1rem 0 0.5rem;
+      color: #2d3748;
+      font-weight: 600;
+    }
+    ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    ul li {
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    ul li::before {
+      content: "▹";
+      color: #5a67d8;
+      font-weight: bold;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+    .skill-badge {
+      background: #ede9fe;
+      color: #5a67d8;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .project-item {
+      background: #f8fafc;
+      border-radius: 1.2rem;
+      padding: 1.2rem;
+      border: 1px solid #e2e8f0;
+    }
+    .project-item strong {
+      font-size: 1.2rem;
+      color: #2c3e66;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .tools-used {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .tools-used span {
+      background: #e0e7ff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 500;
+    }
+    .contact-details a {
+      color: #5a67d8;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      color: rgba(255,255,255,0.8);
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    /* responsive: mobile */
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+      }
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .tagline {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero img {
+        width: 110px;
+        height: 110px;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"> Wama Portfolio</div>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="container">
+  <!-- HOMEPAGE / INTRODUCTION section -->
+  <div class="hero" id="home">
+    <!-- using your original image file name; ensure it's uploaded without spaces -->
+    <img src="WhatsApp Image 2026-04-14 at 16.43.23.jpeg" alt="Wamashudu Mutavhatsindi profile photo" onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
+    <h1>Wamashudu Mutavhatsindi</h1>
+    <div class="tagline"> Aspiring Software Developer | HCI Enthusiast</div>
+    <p><strong>Welcome!</strong> I'm a second-year BSc Computer Science student at the University of Venda. I love building meaningful digital experiences and solving problems through code.</p>
+    <p> South Africa |  Open to internships</p>
+  </div>
+
+  <!-- ABOUT ME (academic, skills, career goals) -->
+  <div class="card" id="about">
+    <h2> About Me</h2>
+    <p><strong>Academic background:</strong> BSc Computer Science (2nd year) – University of Venda. Relevant courses: HCI, Operating Systems, AI, Database Fundamentals, Imperative Programming.</p>
+    
+    <h3> Career & Academic Goals</h3>
+    <p>Become a professional software developer who designs accessible, user-friendly applications. I aim to specialize in full-stack development and contribute to open-source projects that impact education and communities.</p>
+    
+    <h3> Skills & Tools</h3>
+    <div class="skills-grid">
+      <span class="skill-badge">Java</span>
+      <span class="skill-badge">HTML5/CSS3</span>
+      <span class="skill-badge">JavaScript (beginner)</span>
+      <span class="skill-badge">Git & GitHub</span>
+      <span class="skill-badge">Figma</span>
+      <span class="skill-badge">MySQL</span>
+      <span class="skill-badge">NetBeans</span>
+      <span class="skill-badge">Problem Solving</span>
+    </div>
+    <h3> Certificates</h3>
+    <ul>
+      <li>CS50: Intro to Computer Science – Harvard</li>
+      <li>CS50: Data Structures & Algorithms</li>
+      <li>CS50: SQL</li>
+    </ul>
+  </div>
+
+  <!-- PROJECTS (at least 2, with tools) -->
+  <div class="card" id="projects">
+    <h2> Projects</h2>
+    <div class="projects-grid">
+      <div class="project-item">
+        <strong> Student Management System</strong>
+        <p>Console-based Java application to manage student records (add, view, delete). Uses file handling and OOP principles.</p>
+        <div class="tools-used"><span>Java</span><span>NetBeans</span><span>File I/O</span></div>
+      </div>
+      <div class="project-item">
+        <strong> Account Management System</strong>
+        <p>Secure user account manager with MySQL database integration. Features login, password hashing, and transaction logs.</p>
+        <div class="tools-used"><span>Java</span><span>MySQL</span><span>JDBC</span></div>
+      </div>
+      <div class="project-item">
+        <strong> Personal Portfolio (this site)</strong>
+        <p>Responsive portfolio built with HTML/CSS, applying HCI principles for clarity and usability.</p>
+        <div class="tools-used"><span>HTML5</span><span>CSS3</span><span>Flex/Grid</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT + SOCIAL LINKS -->
+  <div class="card" id="contact">
+    <h2> Contact & Profiles</h2>
+    <div class="contact-details">
+      <p> Email: <a href="mailto:Wamashudumutavhatsindi94@gmail.com">Wamashudumutavhatsindi94@gmail.com</a></p>
+      <p> Phone: +27 79 764 3605</p>
+      <p> GitHub: <a href="https://github.com/Wama-2006" target="_blank">github.com/Wama-2006</a></p>
+      <p> LinkedIn: <a href="https://www.linkedin.com/in/wamashudu-mutavhatsindi-a63341363" target="_blank">linkedin.com/in/wamashudu</a></p>
+      <p> Instagram: <a href="https://www.instagram.com/Wamashudu" target="_blank">@Wamashudu159</a></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Wamashudu Mutavhatsindi — Built with HTML/CSS | HCI-friendly design</p>
+</footer>
+
+</body>
+</html>
